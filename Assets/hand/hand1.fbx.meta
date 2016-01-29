@@ -76,6 +76,8 @@ ModelImporter:
     7400018: Metal
     7400020: Shaka
     7400022: ThumbsUp
+    7400024: GunFinger
+    7400026: GunFinger_001
     9500000: //RootNode
     13700000: mesh_arm
   materials:
