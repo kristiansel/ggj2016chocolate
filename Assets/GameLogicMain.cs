@@ -25,6 +25,9 @@ public class GameLogicMain : MonoBehaviour {
                 timeLeft -= Time.deltaTime;
 
                 // check if the timer hit zero --> game over, hide the NextUpUI
+				if (timeLeft <= 0) {
+					Messenger.Broadcast (Events.GameOver);
+				}
             }
         } // if (gameState != GameState.Waiting)
     }

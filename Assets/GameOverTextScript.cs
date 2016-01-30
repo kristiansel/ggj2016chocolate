@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameOverTextScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameObject.SetActive(false);
+		Messenger.AddListener (Events.GameOver, HandleGameOver);
+		gameObject.SetActive (false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
+
+	void HandleGameOver() {
+		gameObject.SetActive (true);
 	}
 }
