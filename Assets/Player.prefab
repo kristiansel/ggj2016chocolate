@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 436724}
-  - 95: {fileID: 9587874}
   - 111: {fileID: 11166934}
   - 114: {fileID: 11460140}
   m_Layer: 0
@@ -234,6 +233,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &139126
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 438622}
+  m_Layer: 0
+  m_Name: FistColliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &142984
 GameObject:
   m_ObjectHideFlags: 1
@@ -280,6 +294,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &152068
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 495232}
+  - 61: {fileID: 6155180}
+  - 114: {fileID: 11426234}
+  m_Layer: 0
+  m_Name: FistFingers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &155374
 GameObject:
   m_ObjectHideFlags: 1
@@ -321,7 +352,7 @@ GameObject:
   - 4: {fileID: 419426}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: p1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -630,6 +661,19 @@ Transform:
   - {fileID: 427338}
   m_Father: {fileID: 410514}
   m_RootOrder: 0
+--- !u!4 &438622
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 495232}
+  m_Father: {fileID: 467802}
+  m_RootOrder: 1
 --- !u!4 &444854
 Transform:
   m_ObjectHideFlags: 1
@@ -697,6 +741,7 @@ Transform:
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1.0000001}
   m_Children:
   - {fileID: 420716}
+  - {fileID: 438622}
   m_Father: {fileID: 453230}
   m_RootOrder: 0
 --- !u!4 &473934
@@ -787,6 +832,18 @@ Transform:
   m_Children:
   - {fileID: 410514}
   m_Father: {fileID: 449022}
+  m_RootOrder: 0
+--- !u!4 &495232
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 438622}
   m_RootOrder: 0
 --- !u!4 &495552
 Transform:
@@ -916,6 +973,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &6155180
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.0002, y: 0.0006}
 --- !u!61 &6164318
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -956,23 +1027,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &9587874
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119672}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8116e4d98578c724cb84f66eb6daaf52, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &11166934
 Animation:
   m_ObjectHideFlags: 1
@@ -1014,6 +1068,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxForce: 1000
   target: {fileID: 423596}
+--- !u!114 &11426234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc9ad03c07e54820a0cd2c170638ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderType: fistFingers
 --- !u!114 &11460140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1026,6 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: p1 close
+  fistFingers: {fileID: 139126}
 --- !u!114 &11462864
 MonoBehaviour:
   m_ObjectHideFlags: 1

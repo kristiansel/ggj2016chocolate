@@ -12,15 +12,15 @@ public class AnimateHand : MonoBehaviour
 	private Animation anim;
 	private string state = "Handshake";
 	private string lastState = "";
-	private bool closed = false;
+
+	public GameObject fistFingers;
 
 	void Start() {
 		anim = GetComponent<Animation>();
 	}
 
     void Update() {
-		// Testing crossfade
-		closed = Mathf.Abs(Input.GetAxis(closeButton)) > 0.4;
+		var closed = Mathf.Abs(Input.GetAxis(closeButton)) > 0.4;
 
 		if (closed) {
 			state = "FistVertical";
@@ -31,7 +31,9 @@ public class AnimateHand : MonoBehaviour
 		//only start new animation if state changed
 		if (lastState != state) {
 			anim.CrossFade (state, 0.2f);
+			fistFingers.SetActive (closed);
 			lastState = state;
 		}
+
 	}
 }

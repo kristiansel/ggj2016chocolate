@@ -148,10 +148,14 @@ Prefab:
       propertyPath: closeButton
       value: p2 close
       objectReference: {fileID: 0}
+    - target: {fileID: 165778, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
+      propertyPath: m_TagString
+      value: p2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &451926814
+--- !u!1001 &1386253019
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
