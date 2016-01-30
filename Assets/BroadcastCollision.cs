@@ -2,12 +2,17 @@
 using System.Collections;
 
 public class BroadcastCollision : MonoBehaviour {
-	public string colliderType = "fistFingers";
+	public string type = "fist fingers";
 
 	private static float lastCollision = 0;
 	private const float minimumCollisionInterval = 0.5f;
 
 	void OnCollisionEnter2D(Collision2D collision) {
+		var otherBroadcast = collision.collider.GetComponent<BroadcastCollision> ();
+		if (otherBroadcast == null) {
+			return;
+		}
+
 		var t = Time.time;
 		if (lastCollision + minimumCollisionInterval > t) {
 			return;
@@ -17,6 +22,6 @@ public class BroadcastCollision : MonoBehaviour {
 		var thisCollider = GetComponent<Collider2D> ();
 		var velocity = collision.relativeVelocity;
 
-		Debug.Log ("TODO: broadcast collision: " + collision.collider + thisCollider + velocity);
+		Messenger.Broadcast<BroadcastCollision, BroadcastCollision, Vector2> ("collision", this, otherBroadcast, velocity);
 	}
 }
