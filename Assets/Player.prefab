@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb3955b3221a4198993e7bbded4bfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 240
+  maxForce: 1000
   target: {fileID: 423596}
 --- !u!114 &11460140
 MonoBehaviour:
