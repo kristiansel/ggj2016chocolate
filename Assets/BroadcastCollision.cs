@@ -22,6 +22,6 @@ public class BroadcastCollision : MonoBehaviour {
 		var thisCollider = GetComponent<Collider2D> ();
 		var velocity = collision.relativeVelocity;
 
-		Messenger.Broadcast<BroadcastCollision, BroadcastCollision, Vector2> ("collision", this, otherBroadcast, velocity);
+		Messenger.Broadcast<BroadcastCollision, BroadcastCollision, Vector2> (Events.Collision, this, otherBroadcast, velocity);
 	}
 }
