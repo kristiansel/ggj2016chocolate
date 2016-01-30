@@ -110,7 +110,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419426, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 419426, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
       propertyPath: m_LocalRotation.z
@@ -118,7 +118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419426, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.00000016292068
       objectReference: {fileID: 0}
     - target: {fileID: 419426, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
       propertyPath: m_RootOrder
@@ -139,6 +139,10 @@ Prefab:
     - target: {fileID: 2371722, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462864, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
+      propertyPath: flipHorizontalAxis
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
@@ -305,7 +309,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -332,21 +336,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1852646970 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 189990, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
-  m_PrefabInternal: {fileID: 451926814}
---- !u!61 &1852646971
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1852646970}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
