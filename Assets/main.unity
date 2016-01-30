@@ -144,6 +144,10 @@ Prefab:
       propertyPath: flipHorizontalAxis
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11460140, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
+      propertyPath: closeButton
+      value: p2 close
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
   m_IsPrefabParent: 0
@@ -185,10 +189,6 @@ Prefab:
     - target: {fileID: 419426, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 436724, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}

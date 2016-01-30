@@ -984,9 +984,19 @@ Animation:
   m_Animation: {fileID: 7400002, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
   m_Animations:
   - {fileID: 7400002, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
-  - {fileID: 7400014, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
   - {fileID: 7400004, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400006, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400008, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400010, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400012, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
   - {fileID: 7400024, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400028, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400014, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400024, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400016, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400018, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400020, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400022, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1015,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a450cc06ee3371345a19efc313b349e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closeButton: p1 close
 --- !u!114 &11462864
 MonoBehaviour:
   m_ObjectHideFlags: 1
