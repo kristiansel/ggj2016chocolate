@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 436724}
   - 95: {fileID: 9587874}
+  - 111: {fileID: 11166934}
+  - 114: {fileID: 11460140}
   m_Layer: 0
   m_Name: hand1
   m_TagString: Untagged
@@ -910,9 +912,9 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119672}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8116e4d98578c724cb84f66eb6daaf52, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -920,6 +922,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &11166934
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119672}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400002, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  m_Animations:
+  - {fileID: 7400002, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400014, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400004, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  - {fileID: 7400024, guid: c1b731801a1a3294fad95530670b8ffd, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &11402466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -933,6 +953,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxForce: 240
   target: {fileID: 423596}
+--- !u!114 &11460140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a450cc06ee3371345a19efc313b349e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11462864
 MonoBehaviour:
   m_ObjectHideFlags: 1
