@@ -9,11 +9,12 @@ public class MoveToAbsolute : MonoBehaviour {
 	public bool flipHorizontalAxis = false;
 
 	void FixedUpdate() {
-		float x = Input.GetAxis (horizontalAxis);
+		var x = Input.GetAxis (horizontalAxis);
 		if (flipHorizontalAxis) {
 			x *= -1;
 		}
-		float y = Input.GetAxis (verticalAxis);
-		transform.localPosition = new Vector3 (x, y, 0).normalized * maxRadius;
+		var y = Input.GetAxis (verticalAxis);
+		var direction = Vector3.ClampMagnitude (new Vector3 (x, y, 0), 1);
+		transform.localPosition = direction * maxRadius;
 	}
 }
