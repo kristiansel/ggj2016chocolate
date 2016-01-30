@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameLogicMain : MonoBehaviour {
@@ -12,9 +12,9 @@ public class GameLogicMain : MonoBehaviour {
     public float maxTime = 30.0f; // 30 seconds to complete the first move
 
     void Start () {
-		Messenger.AddListener<Gestures> (Events.Gesture, handleGesture);
+		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
 	}
-	
+
 	void Update () {
 
         if (gameState != GameStateEnum.Waiting)
@@ -32,7 +32,7 @@ public class GameLogicMain : MonoBehaviour {
         } // if (gameState != GameState.Waiting)
     }
 
-	void handleGesture(Gestures g) {
+	void HandleGesture(Gestures g) {
 		// send the success signal that triggers a new move or freestyle mode
 		maxTime = maxTime * (0.9f);
 		timeLeft = maxTime;
