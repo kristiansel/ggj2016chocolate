@@ -11,30 +11,14 @@ public class GameLogicMain : MonoBehaviour {
     public float timeLeft = 30.0f; // 30 seconds to complete the first move
     public float maxTime = 30.0f; // 30 seconds to complete the first move
 
-    // Use this for initialization
     void Start () {
-	
+		Messenger.AddListener<Gestures> (Events.Gesture, handleGesture);
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
         if (gameState != GameStateEnum.Waiting)
         {
-            // temporary code to test move-success, space is the cheat key
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("hit space");
-                // space is a placeholder "cheat key" for completing the "next move"
-
-                // send the success signal that triggers a new move or freestyle mode
-                maxTime = maxTime * (0.9f);
-                timeLeft = maxTime;
-
-                    // set time equal to maxtime
-                    // switch new target move
-            }
-
             if (gameState == GameStateEnum.MoveSequence)
             {
                 // increment the timer down
@@ -44,4 +28,13 @@ public class GameLogicMain : MonoBehaviour {
             }
         } // if (gameState != GameState.Waiting)
     }
+
+	void handleGesture(Gestures g) {
+		// send the success signal that triggers a new move or freestyle mode
+		maxTime = maxTime * (0.9f);
+		timeLeft = maxTime;
+
+		// set time equal to maxtime
+		// switch new target move
+	}
 }
