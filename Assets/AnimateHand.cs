@@ -1,40 +1,39 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
+
+// This setup only works with:
+//  Import --> Rig --> Animation Type  = Legacy
+//  Import --> Animations --> Wrap mode = Loop
 public class AnimateHand : MonoBehaviour
 {
-    private Animation anim;
+	public string closeButton = "p1 close";
 
-    // This setup only works with:
-    //  Import --> Rig --> Animation Type  = Legacy
-    //  Import --> Animations --> Wrap mode = Loop
+	private Animation anim;
+	private string state = "Handshake";
+	private string lastState = "";
 
-    void Start()
-    {
-        anim = GetComponent<Animation>();
-    }
-    void Update()
-    {
-        // Testing crossfade
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            anim.CrossFade("HighFive", 0.2f);
-            Debug.Log("Q down");
-        }
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            anim.CrossFade("FistHorizontal", 0.2f);
-            Debug.Log("Q up");
-        }
+	public GameObject fistFingers;
 
-        // Testing blending
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            anim.Blend("GunFinger", 1.0f, 0.3f);
-        }
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            anim.Blend("GunFinger", 0.0f, 0.3f);
-        }
-    }
+	void Start() {
+		anim = GetComponent<Animation>();
+	}
+
+    void Update() {
+		var closed = Mathf.Abs(Input.GetAxis(closeButton)) > 0.4;
+
+		if (closed) {
+			state = "FistVertical";
+		} else {
+			state = "Handshake";
+		}
+
+		//only start new animation if state changed
+		if (lastState != state) {
+			anim.CrossFade (state, 0.2f);
+			fistFingers.SetActive (closed);
+			lastState = state;
+		}
+
+	}
 }
