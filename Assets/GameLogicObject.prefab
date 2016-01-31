@@ -39,9 +39,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8567ecbbf582d141996a0ff66087892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 1
-  timeLeft: 30
-  maxTime: 30
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

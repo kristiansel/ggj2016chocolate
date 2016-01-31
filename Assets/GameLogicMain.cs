@@ -3,23 +3,47 @@ using System.Collections;
 
 public class GameLogicMain : MonoBehaviour {
 
-    public enum GameStateEnum { Waiting, MoveSequence, Freestyle };
+    public enum GameStates { Waiting, MoveSequence, Freestyle };
 
-    // should ideally be read-only for outside classes
-    // private GameState gameState = GameState.Waiting; // default to menu
-    public GameStateEnum gameState = GameStateEnum.MoveSequence; // default to MoveSequence
-    public float timeLeft = 30.0f; // 30 seconds to complete the first move
-    public float maxTime = 30.0f; // 30 seconds to complete the first move
+    private GameStates gameState = GameStates.Waiting;
+    [HideInInspector]
+    public float timeLeft
+    {
+        get;
+        private set;
+    }
+    public float maxTime
+    {
+        get;
+        private set;
+    }
+
+    private void resetTime()
+    {
+        timeLeft = 30.0f;
+        maxTime = 30.0f;
+    }
 
     void Start () {
 		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
+        resetTime();
 	}
 
-	void Update () {
+    public void StartGameButton()
+    {
+        Messenger.Broadcast(Events.StartGame);
+        resetTime();
+        gameState = GameStates.MoveSequence;
 
-        if (gameState != GameStateEnum.Waiting)
+        // deactivate button
+        // reset game
+        // change game mode to sequence etc...
+    }
+
+	void Update () {
+        if (gameState != GameStates.Waiting)
         {
-            if (gameState == GameStateEnum.MoveSequence)
+            if (gameState == GameStates.MoveSequence)
             {
                 // increment the timer down
                 timeLeft -= Time.deltaTime;
@@ -30,6 +54,10 @@ public class GameLogicMain : MonoBehaviour {
 				}
             }
         } // if (gameState != GameState.Waiting)
+        else // the we are on the menu
+        {
+            // 
+        }
     }
 
 	void HandleGesture(Gestures g) {

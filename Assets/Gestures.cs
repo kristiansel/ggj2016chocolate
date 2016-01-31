@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum Gestures {
+﻿public enum Gestures {
 	Handshake,
 	HorizontalFistBump,
 	VerticalFistBump,

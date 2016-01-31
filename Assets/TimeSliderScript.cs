@@ -15,6 +15,6 @@ public class TimeSliderScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         slider.value = gameLogicObject.timeLeft;
-        slider.maxValue = gameLogicObject.maxTime; // this doesn't need updating every frame, should be event based.
+        slider.maxValue = gameLogicObject.maxTime; // this doesn't need updating every frame, could be event based.
     }
 }
