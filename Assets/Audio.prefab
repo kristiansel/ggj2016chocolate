@@ -121,6 +121,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 757be34e7cf334079b441c34bee33567, type: 3}
   - {fileID: 8300000, guid: 7063175eeb5474c5f9ccad2a5863c727, type: 3}
   - {fileID: 8300000, guid: 1d92031f432d84bba8940c37da2762e2, type: 3}
+  bumpClips:
+  - {fileID: 8300000, guid: 00965ba41de4440ff95ebb2a9d598c31, type: 3}
+  - {fileID: 8300000, guid: a67918b53a50244119216d88d5544979, type: 3}
+  - {fileID: 8300000, guid: 1d4c9f06a41be44088be1681d3f6cd5a, type: 3}
+  - {fileID: 8300000, guid: 71d5a2e6e92484bf58c003859b8b29fe, type: 3}
+  - {fileID: 8300000, guid: a9315f0a20f05498eaa11b55e2ddc109, type: 3}
+  - {fileID: 8300000, guid: 358aa23ab62c84a5d9f7b452fc331f4f, type: 3}
+  - {fileID: 8300000, guid: 41bd38ea93b214da9883cd7ebff26dae, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
