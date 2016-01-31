@@ -1,11 +1,11 @@
 ﻿public enum Gestures {
-	Handshake,
-	HorizontalFistBump,
+	//Handshake,
+	//HorizontalFistBump,
 	VerticalFistBump,
 	FistHammerLeftTop,
 	FistHammerRightTop,
-	HighFive,
-	DownLowLeftTop,
-	DownLowRightTop,
+	//HighFive,
+	//DownLowLeftTop,
+	//DownLowRightTop,
 	//ExplodingFistBump
 }

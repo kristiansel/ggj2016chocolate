@@ -26,6 +26,7 @@ public class GameLogicMain : MonoBehaviour {
 
     void Start () {
 		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
+		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
         resetTime();
 	}
 
@@ -34,6 +35,7 @@ public class GameLogicMain : MonoBehaviour {
         Messenger.Broadcast(Events.StartGame);
         resetTime();
         gameState = GameStates.MoveSequence;
+		NextGesture ();
 
         // deactivate button
         // reset game
@@ -60,12 +62,33 @@ public class GameLogicMain : MonoBehaviour {
         }
     }
 
+	private Gestures? currentGesture;
+
 	void HandleGesture(Gestures g) {
-		// send the success signal that triggers a new move or freestyle mode
+		if (currentGesture.HasValue && currentGesture.Value == g) {
+			Messenger.Broadcast (Events.CorrectGesture);
+			NextGesture ();
+		}
+	}
+
+	void HandleCorrectGesture() {
 		maxTime = maxTime * (0.9f);
 		timeLeft = maxTime;
+	}
 
-		// set time equal to maxtime
-		// switch new target move
+	Gestures RandomGesture() {
+		var values = Gestures.GetValues(typeof(Gestures));
+		int index = (int)(Random.value * values.Length);
+		Gestures gesture = (Gestures)values.GetValue(index);
+		return gesture;
+	}
+
+	private void NextGesture() {
+		//select new gesture
+		var previousGesture = currentGesture;
+		while(currentGesture == previousGesture) {
+			currentGesture = RandomGesture ();
+		}
+		Messenger.Broadcast<Gestures> (Events.NewGesture, currentGesture.Value);
 	}
 }
