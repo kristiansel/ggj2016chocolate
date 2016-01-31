@@ -594,6 +594,14 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11427164, guid: be8960b6609f01b45956e9d3701c9c68, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 206250991}
+    - target: {fileID: 11427164, guid: be8960b6609f01b45956e9d3701c9c68, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGameButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be8960b6609f01b45956e9d3701c9c68, type: 2}
   m_IsPrefabParent: 0
