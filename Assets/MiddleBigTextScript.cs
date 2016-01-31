@@ -10,6 +10,7 @@ public class MiddleBigTextScript : MonoBehaviour {
 	void Start () {
 		Messenger.AddListener (Events.GameOver, HandleGameOver);
         Messenger.AddListener(Events.StartGame, HandleStartGame);
+        Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
         gameObject.SetActive (false);
         textObject = GetComponent<Text>();
 	}
@@ -22,5 +23,11 @@ public class MiddleBigTextScript : MonoBehaviour {
     void HandleStartGame()
     {
         gameObject.SetActive(false);
+    }
+
+    void HandleFreestyleTriggered()
+    {
+        gameObject.SetActive(true);
+        textObject.text = "Freestyle!";
     }
 }

@@ -18,42 +18,72 @@ public class GameLogicMain : MonoBehaviour {
         private set;
     }
 
+    // A sequence of successful gestures triggers freestyle mode
+    private uint sequenceNumber = 0;
+    private float difficultyFactor = 1.0f; // The difficulty increases for each new sequence
+
+    public uint maxSequenceNumber = 10; // number of moves between freestyle sessions
+    public float freestyleTime = 10.0f; // seconds of freestyle mode time between sequences
+    public  float beginnerSequenceTime = 30.0f; // When "Start game" is pressed this gets set as the remaining time
+    public float difficultySteepness = 1.1f; // this number gets multiplied by the difficulty factor for each successful sequence
+
     private void resetTime()
     {
-        timeLeft = 30.0f;
-        maxTime = 30.0f;
+        // need to give less and less time to subsequent sequences so that difficulty increases
+        float sequenceStartTime = beginnerSequenceTime / difficultyFactor;
+        timeLeft = sequenceStartTime;
+        maxTime = timeLeft;
+        sequenceNumber = 0;
     }
 
     void Start () {
 		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
 		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
+        Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
+        Messenger.AddListener(Events.StartGame, HandleStartGame);
         resetTime();
 	}
 
     public void StartGameButton()
     {
         Messenger.Broadcast(Events.StartGame);
-        resetTime();
-        gameState = GameStates.MoveSequence;
-		NextGesture ();
-
         // deactivate button
         // reset game
         // change game mode to sequence etc...
     }
 
+    void HandleStartGame()
+    {
+        resetTime();
+        gameState = GameStates.MoveSequence;
+        NextGesture();
+        
+    }
+
 	void Update () {
         if (gameState != GameStates.Waiting)
         {
-            if (gameState == GameStates.MoveSequence)
+            // "cheat" key space for debuging purpose
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                // increment the timer down
-                timeLeft -= Time.deltaTime;
+                Messenger.Broadcast(Events.CorrectGesture);
+            }
 
-                // check if the timer hit zero --> game over, hide the NextUpUI
-				if (timeLeft <= 0) {
-					Messenger.Broadcast (Events.GameOver);
-				}
+            // increment the timer down
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                if (gameState == GameStates.MoveSequence)
+                {
+                    difficultyFactor = 1.0f; // reset the difficulty 
+                    Messenger.Broadcast(Events.GameOver);
+                }
+                else if (gameState == GameStates.Freestyle) // elif in case more gameModes are added
+                {
+                    // sequence is successful --> increase difficulty!
+                    difficultyFactor = difficultySteepness * difficultyFactor;
+                    Messenger.Broadcast(Events.StartGame); // start sequence mode.
+                }
             }
         } // if (gameState != GameState.Waiting)
         else // the we are on the menu
@@ -65,18 +95,47 @@ public class GameLogicMain : MonoBehaviour {
 	private Gestures? currentGesture;
 
 	void HandleGesture(Gestures g) {
-		if (currentGesture.HasValue && currentGesture.Value == g) {
-			Messenger.Broadcast (Events.CorrectGesture);
-			NextGesture ();
-		}
+        if (gameState == GameStates.MoveSequence)
+        {
+            if (currentGesture.HasValue && currentGesture.Value == g)
+            {
+                Messenger.Broadcast(Events.CorrectGesture);
+            }
+        }
+        else if (gameState == GameStates.Freestyle)
+        {
+            // send some message to give some possitive feedback...
+        }
 	}
 
+    
 	void HandleCorrectGesture() {
-		maxTime = maxTime * (0.9f);
-		timeLeft = maxTime;
+        // This function only makes sense to call in sequence mode
+        if (sequenceNumber >= maxSequenceNumber-1) // if sequence complete should go to freestyle mode
+        {
+            if (gameState != GameStates.Freestyle)
+            {
+                gameState = GameStates.Freestyle;
+                Messenger.Broadcast(Events.FreestyleTriggered);
+            }
+        }
+        else // else should reduce time a bit and increment sequencenumber
+        {
+            maxTime = maxTime * (0.9f);
+            timeLeft = maxTime;
+            sequenceNumber++;
+            NextGesture();
+        }
 	}
 
-	Gestures RandomGesture() {
+    void HandleFreestyleTriggered()
+    {
+        timeLeft = freestyleTime;
+        maxTime = timeLeft;
+        sequenceNumber = 0;
+    }
+
+    Gestures RandomGesture() {
 		var values = Gestures.GetValues(typeof(Gestures));
 		int index = (int)(Random.value * values.Length);
 		Gestures gesture = (Gestures)values.GetValue(index);
