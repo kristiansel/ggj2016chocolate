@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 441534}
   - 60: {fileID: 6041144}
+  - 114: {fileID: 11487566}
   m_Layer: 0
   m_Name: HandBaseCollider
   m_TagString: Untagged
@@ -168,6 +169,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 484444}
   - 60: {fileID: 6031860}
+  - 114: {fileID: 11438304}
   m_Layer: 0
   m_Name: HandBaseCollider
   m_TagString: Untagged
@@ -229,6 +231,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 431148}
   - 60: {fileID: 6050812}
+  - 114: {fileID: 11490960}
   m_Layer: 0
   m_Name: PalmTopCollider
   m_TagString: Untagged
@@ -447,6 +450,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419426}
+  - 114: {fileID: 11495798}
   m_Layer: 0
   m_Name: Player
   m_TagString: p1
@@ -1388,6 +1392,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: fist fingers
+--- !u!114 &11438304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc9ad03c07e54820a0cd2c170638ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: palm bottom
 --- !u!114 &11460140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1428,6 +1444,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: palm bottom
+--- !u!114 &11487566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc9ad03c07e54820a0cd2c170638ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: palm bottom
+--- !u!114 &11490960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc9ad03c07e54820a0cd2c170638ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: palm top
+--- !u!114 &11495798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b96787651054d8c9b365efcecedc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 1
 --- !u!137 &13701492
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
