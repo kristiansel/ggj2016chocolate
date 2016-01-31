@@ -9,13 +9,25 @@ public class NextMoveImageScript : MonoBehaviour {
 	void Start () {
 		image = gameObject.GetComponent<Image> ();
 		Messenger.AddListener<Gestures> (Events.NewGesture, HandleNewGesture);
-	}
+        Messenger.AddListener(Events.StartGame, HandleStartGame);
+        Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
+    }
 
 	void HandleNewGesture (Gestures gesture) {
 		image.sprite = GetSpriteForGesture (gesture);
 	}
 
-	Sprite GetSpriteForGesture(Gestures gesture) {
+    void HandleFreestyleTriggered()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void HandleStartGame()
+    {
+        gameObject.SetActive(true);
+    }
+
+    Sprite GetSpriteForGesture(Gestures gesture) {
 		foreach (var sprite in sprites) {
 			if (sprite.name == gesture.ToString ()) {
 				return sprite;
