@@ -21,6 +21,7 @@ public class GameLogicMain : MonoBehaviour {
     // A sequence of successful gestures triggers freestyle mode
     private uint sequenceNumber = 0;
     private float difficultyFactor = 1.0f; // The difficulty increases for each new sequence
+    private KeyCode start_button = KeyCode.Joystick1Button7; // seven default for windows and linux, nine for mac
 
     public uint maxSequenceNumber = 10; // number of moves between freestyle sessions
     public float freestyleTime = 10.0f; // seconds of freestyle mode time between sequences
@@ -42,6 +43,12 @@ public class GameLogicMain : MonoBehaviour {
         Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
         Messenger.AddListener(Events.StartGame, HandleStartGame);
         resetTime();
+
+        // platform specific start button mapping for mac
+        if (Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            start_button = KeyCode.Joystick1Button9;
+        }
 	}
 
     public void StartGameButton()
@@ -88,7 +95,11 @@ public class GameLogicMain : MonoBehaviour {
         } // if (gameState != GameState.Waiting)
         else // the we are on the menu
         {
-            // 
+            // if (Input.GetButtonDown("joystick button " + start_button.ToString())) // complains about no input setup
+            if (Input.GetKeyDown(start_button))
+            {
+                StartGameButton();
+            }
         }
     }
 
