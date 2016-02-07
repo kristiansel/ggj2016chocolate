@@ -8,6 +8,7 @@ public class GestureInterpreter : MonoBehaviour {
 
 	void Broadcast(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
 		Gestures? gesture = InterpretCollision (b1, b2);
+
 		if (gesture != null) {
 			Debug.Log("Gesture detected: " + gesture.ToString()); 
 			Messenger.Broadcast<Gestures> (Events.Gesture, gesture.Value);

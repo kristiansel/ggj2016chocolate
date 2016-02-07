@@ -12,7 +12,6 @@ public class Combo : MonoBehaviour {
 
 	void HandleCombo() {
 		streak += 1;
-		Debug.Log (streak);
 	}
 
 	void HandleComboBreak() {
