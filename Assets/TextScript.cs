@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SuccessTextScript : MonoBehaviour {
+public class TextScript : MonoBehaviour {
 
 	private Rigidbody2D aiai;
 	private Text text;

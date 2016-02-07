@@ -17,6 +17,7 @@ public class BroadcastCollision : MonoBehaviour {
 		if (lastCollision + minimumCollisionInterval > t) {
 			return;
 		}
+
 		lastCollision = t;
 
 		var velocity = collision.relativeVelocity;

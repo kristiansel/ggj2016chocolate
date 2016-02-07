@@ -40,9 +40,9 @@ public class GameLogicMain : MonoBehaviour {
     void Start () {
 		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
 		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
-        Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
-        Messenger.AddListener(Events.StartGame, HandleStartGame);
-        resetTime();
+        Messenger.AddListener (Events.FreestyleTriggered, HandleFreestyleTriggered);
+        Messenger.AddListener (Events.StartGame, HandleStartGame);
+		resetTime ();
 
         // platform specific start button mapping for mac
         if (Application.platform == RuntimePlatform.OSXPlayer)
@@ -108,10 +108,11 @@ public class GameLogicMain : MonoBehaviour {
 	void HandleGesture(Gestures g) {
         if (gameState == GameStates.MoveSequence)
         {
-            if (currentGesture.HasValue && currentGesture.Value == g)
-            {
-                Messenger.Broadcast(Events.CorrectGesture);
-            }
+			if (currentGesture.HasValue && currentGesture.Value == g) {
+				Messenger.Broadcast (Events.CorrectGesture);
+			} else {
+				Messenger.Broadcast (Events.IncorrectGesture);
+			}
         }
         else if (gameState == GameStates.Freestyle)
         {

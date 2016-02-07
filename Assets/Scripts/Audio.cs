@@ -15,12 +15,12 @@ public class Audio : MonoBehaviour {
 	}
 	
 	void HandleCorrectGesture () {
-		var index = (int)(Random.value * successClips.Length);
+		int index = (int)Random.Range (0, successClips.Length);
 		source.PlayOneShot (successClips [index]);
 	}
 
 	void HandleCollision (BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		var index = (int)(Random.value * bumpClips.Length);
+		int index = (int)Random.Range (0, bumpClips.Length);
 		source.PlayOneShot (bumpClips [index]);
 	}
 
