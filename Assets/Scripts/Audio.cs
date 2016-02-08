@@ -12,8 +12,8 @@ public class Audio : MonoBehaviour {
 
 	void Start () {
 		source = GetComponent<AudioSource> ();
-		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
-		Messenger.AddListener (Events.IncorrectGesture, HandleIncorrectGesture);
+//		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
+//		Messenger.AddListener (Events.IncorrectGesture, HandleIncorrectGesture);
 		Messenger.AddListener<BroadcastCollision, BroadcastCollision, Vector2> (Events.Collision, HandleCollision);
 	}
 	

@@ -3,11 +3,17 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class TextFX : MonoBehaviour {
-
 	public GameObject SuccessTextPrefab;
 	public GameObject FailTextPrefab;
 
+	public AudioClip[] poslyd;
+	public AudioClip[] neglyd;
+
+	private AudioSource lyd;
+
 	void Start () {
+		lyd = GameObject.Find("Audio").GetComponent<AudioSource> ();
+
 		Messenger.AddListener(Events.CorrectGesture, HandleCorrectGesture); // add argument to this callback indicating qesture quality
 		Messenger.AddListener(Events.IncorrectGesture, HandleIncorrectGesture);
 	}
@@ -55,5 +61,34 @@ public class TextFX : MonoBehaviour {
 		tempRect.transform.localScale = prefab.transform.localScale;
 
 		Destroy (temp, 2.0f);
+		StartCoroutine(PlaySound (text));
+	}
+
+	IEnumerator PlaySound(string name) {
+		switch (name) {
+		case "Decent":
+			lyd.PlayOneShot (poslyd [0]);
+			break;
+		case "Nice":
+			lyd.PlayOneShot (poslyd [1]);
+			break;
+		case "Awesome!":
+			lyd.PlayOneShot (poslyd [2]);
+			break;
+		case "Sick!":
+			lyd.PlayOneShot (poslyd [3]);
+			break;
+		case "Epic fail!":
+			lyd.PlayOneShot (neglyd [0]);
+			break;
+		case "Fail!":
+			lyd.PlayOneShot (neglyd [1]);
+			break;
+		case "Awkward":
+			lyd.PlayOneShot (neglyd [2]);
+			break;
+		}
+
+		yield return null;
 	}
 }

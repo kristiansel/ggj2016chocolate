@@ -21,7 +21,7 @@ public class MusicScript : MonoBehaviour {
 
 		yield return new WaitForSeconds (5);
 
-		lyd.Stop();
+		lyd.Pause();
 	}
 
 	// funker ikke for øyeblikket
