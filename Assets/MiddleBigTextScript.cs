@@ -9,8 +9,8 @@ public class MiddleBigTextScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Messenger.AddListener (Events.GameOver, HandleGameOver);
-        Messenger.AddListener(Events.StartGame, HandleStartGame);
-        Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
+        Messenger.AddListener (Events.StartGame, HandleStartGame);
+        Messenger.AddListener (Events.FreestyleTriggered, HandleFreestyleTriggered);
         gameObject.SetActive (false);
         textObject = GetComponent<Text>();
 	}

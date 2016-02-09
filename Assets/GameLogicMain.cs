@@ -157,9 +157,11 @@ public class GameLogicMain : MonoBehaviour {
 	private void NextGesture() {
 		//select new gesture
 		var previousGesture = currentGesture;
+
 		while(currentGesture == previousGesture) {
 			currentGesture = RandomGesture ();
 		}
+
 		Messenger.Broadcast<Gestures> (Events.NewGesture, currentGesture.Value);
 	}
 }
