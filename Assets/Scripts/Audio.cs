@@ -29,6 +29,7 @@ public class Audio : MonoBehaviour {
 
 	void HandleCollision (BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
 		int index = (int)Random.Range (0, bumpClips.Length);
+		source.pitch = 30 / velocity.magnitude;
 		source.PlayOneShot (bumpClips [index]);
 	}
 

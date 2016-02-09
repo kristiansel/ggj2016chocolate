@@ -12,7 +12,7 @@ public class TextFX : MonoBehaviour {
 	private AudioSource lyd;
 
 	void Start () {
-		lyd = GameObject.Find("Audio").GetComponent<AudioSource> ();
+		lyd = GetComponent<AudioSource> ();
 
 		Messenger.AddListener(Events.CorrectGesture, HandleCorrectGesture); // add argument to this callback indicating qesture quality
 		Messenger.AddListener(Events.IncorrectGesture, HandleIncorrectGesture);
