@@ -10,4 +10,5 @@ public class Events {
 	public const string IncorrectGesture = "incorrect gesture";
 	public const string NewGesture = "new gesture";
     public const string FreestyleTriggered = "freestyle triggered";
+    public const string FreestyleOver = "freestyle over";
 }

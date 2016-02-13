@@ -621,15 +621,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11445712, guid: 5ca1634e9dc016b42ad65eba5e065755, type: 2}
       propertyPath: difficultySteepness
-      value: 3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 11445712, guid: 5ca1634e9dc016b42ad65eba5e065755, type: 2}
       propertyPath: freestyleTime
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 11445712, guid: 5ca1634e9dc016b42ad65eba5e065755, type: 2}
       propertyPath: maxSequenceNumber
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ca1634e9dc016b42ad65eba5e065755, type: 2}
@@ -1198,6 +1198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8135b75136bb4651b2b142027853ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freestyleClips:
+  - {fileID: 8300000, guid: 9dc2262ab913c45ecb9dcbac51e234b7, type: 3}
+  sequenceClips:
+  - {fileID: 8300000, guid: e912ac9f861a644adbc866ee7d10b9b8, type: 3}
 --- !u!1001 &1439151517
 Prefab:
   m_ObjectHideFlags: 0

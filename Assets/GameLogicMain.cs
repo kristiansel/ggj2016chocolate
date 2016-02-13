@@ -89,6 +89,7 @@ public class GameLogicMain : MonoBehaviour {
                 {
                     // sequence is successful --> increase difficulty!
                     difficultyFactor = difficultySteepness * difficultyFactor;
+                    Messenger.Broadcast(Events.FreestyleOver);
                     Messenger.Broadcast(Events.StartGame); // start sequence mode.
                 }
             }

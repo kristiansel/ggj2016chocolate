@@ -5,27 +5,31 @@ using System.Collections;
 public class MusicScript : MonoBehaviour {
 	private AudioSource lyd;
 
-	void Start () {
+    public AudioClip[] freestyleClips;
+    public AudioClip[] sequenceClips;
+
+    void Start () {
 		lyd = GetComponent<AudioSource> ();
 		Messenger.AddListener (Events.FreestyleTriggered, HandleFreestyleTriggered);
-		// Messenger.AddListener (Events.FreestyleEnd, HandleFreestyleEnd);
-	}
+		Messenger.AddListener (Events.FreestyleOver, HandleFreestyleOver);
+        Messenger.AddListener (Events.StartGame, HandleStartSequence);
+    }
 
 	void HandleFreestyleTriggered() {
-		// jaja
-		StartCoroutine (Eh());
-	}
+        int index = (int)Random.Range(0, freestyleClips.Length);
+        lyd.clip = freestyleClips[index];
+        lyd.Play();
+    }
 
-	IEnumerator Eh() {
-		lyd.Play ();
+    void HandleStartSequence()
+    {
+        int index = (int)Random.Range(0, sequenceClips.Length);
+        lyd.clip = sequenceClips[index];
+        lyd.Play();
+    }
 
-		yield return new WaitForSeconds (5);
-
-		lyd.Pause();
-	}
-
-	// funker ikke for øyeblikket
-	void HandleFreestyleEnd() {
-		lyd.Stop ();
+    // funker ikke for øyeblikket
+    void HandleFreestyleOver() {
+	//	lyd.Stop ();
 	}
 }
