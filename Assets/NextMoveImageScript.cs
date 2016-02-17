@@ -11,6 +11,9 @@ public class NextMoveImageScript : MonoBehaviour {
 		Messenger.AddListener<Gestures> (Events.NewGesture, HandleNewGesture);
         Messenger.AddListener(Events.StartSequenceMode, HandleStartSequenceMode);
         Messenger.AddListener(Events.StartFreestyleMode, HandleStartFreestyleMode);
+        Messenger.AddListener(Events.StartGame, HandleStartGame);
+        Messenger.AddListener(Events.GameOver, HandleGameOver);
+        gameObject.SetActive(false);
     }
 
 	void HandleNewGesture (Gestures gesture) {
@@ -35,5 +38,15 @@ public class NextMoveImageScript : MonoBehaviour {
 		}
 		return null;
 	}
+
+    void HandleStartGame()
+    {
+        gameObject.SetActive(true);
+    }
+
+    void HandleGameOver()
+    {
+        gameObject.SetActive(false);
+    }
 
 }
