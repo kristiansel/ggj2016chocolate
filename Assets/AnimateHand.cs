@@ -7,33 +7,23 @@ using System.Collections;
 //  Import --> Animations --> Wrap mode = Loop
 public class AnimateHand : MonoBehaviour
 {
-	public string closeButton = "p1 close";
-
-	private Animation anim;
-	private string state = "Handshake";
 	private string lastState = "";
+	private Animation anim;
+	private Player player;
 
 	public GameObject fistFingers;
 
 	void Start() {
 		anim = GetComponent<Animation>();
+		player = GetComponentInParent<Player> ();
 	}
 
     void Update() {
-		var closed = Mathf.Abs(Input.GetAxis(closeButton)) > 0.4;
-
-		if (closed) {
-			state = "FistVertical";
-		} else {
-			state = "Handshake";
-		}
-
 		//only start new animation if state changed
-		if (lastState != state) {
-			anim.CrossFade (state, 0.2f);
-			fistFingers.SetActive (closed);
-			lastState = state;
+		if (player.state != lastState) {
+			anim.CrossFade (player.state, 0.2f);
+			fistFingers.SetActive (player.state == "FistVertical");
+			lastState = player.state;
 		}
-
 	}
 }
