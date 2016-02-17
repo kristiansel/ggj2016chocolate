@@ -1480,7 +1480,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 1
   closeButton: p1 close
-  state: Handshake
 --- !u!137 &13701492
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

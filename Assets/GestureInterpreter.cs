@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-public static class Extensions
+public static class GestureInterpreterExtensions
 {
 	public static float IsGesture(this Gestures gesture, BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity)
 	{
@@ -16,8 +16,12 @@ public static class Extensions
 		}
 	}
 
+	private static bool HandsHavePose(BroadcastCollision b1, BroadcastCollision b2, string pose) {
+		return b1.player.state == pose && b2.player.state == pose;
+	}
+
 	public static float IsFistHammerLeftTop(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		if (b1.type != "palm bottom" || b2.type != "palm top") {
+		if (b1.type != "palm bottom" || b2.type != "palm top" || !HandsHavePose(b1, b2, "FistVertical")) {
 			return 0;
 		}
 		//the more downwards, the better the score
@@ -25,14 +29,14 @@ public static class Extensions
 	}
 
 	public static float IsFistHammerRightTop(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		if (b1.type != "palm top" || b2.type != "palm bottom") {
+		if (b1.type != "palm top" || b2.type != "palm bottom" || !HandsHavePose(b1, b2, "FistVertical")) {
 			return 0;
 		}
 		return Vector2.Dot (velocity.normalized, Vector2.up);
 	}
 
 	public static float IsVerticalFistBump(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		if (b1.type != "fist fingers" || b2.type != "fist fingers") {
+		if (b1.type != "fist fingers" || b2.type != "fist fingers" || !HandsHavePose(b1, b2, "FistVertical")) {
 			return 0;
 		}
 		return Vector2.Dot (velocity.normalized, Vector2.right);
