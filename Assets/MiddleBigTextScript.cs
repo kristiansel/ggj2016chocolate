@@ -9,7 +9,7 @@ public class MiddleBigTextScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Messenger.AddListener (Events.GameOver, HandleGameOver);
-        Messenger.AddListener (Events.StartGame, HandleStartGame);
+        Messenger.AddListener (Events.StartSequenceMode, HandleStartSequenceMode);
         Messenger.AddListener (Events.StartFreestyleMode, HandleStartFreestyleMode);
         gameObject.SetActive (false);
         textObject = GetComponent<Text>();
@@ -20,7 +20,7 @@ public class MiddleBigTextScript : MonoBehaviour {
 		gameObject.SetActive (true);
 	}
 
-    void HandleStartGame()
+    void HandleStartSequenceMode()
     {
         gameObject.SetActive(false);
     }

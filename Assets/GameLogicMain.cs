@@ -41,6 +41,8 @@ public class GameLogicMain : MonoBehaviour {
 		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
 		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
         Messenger.AddListener (Events.StartFreestyleMode, HandleFreestyleTriggered);
+        Messenger.AddListener (Events.FreestyleModeOver, HandleFreestyleModeOver);
+        Messenger.AddListener (Events.StartSequenceMode, HandleStartSequenceMode);
         Messenger.AddListener (Events.StartGame, HandleStartGame);
 		resetTime ();
 
@@ -61,13 +63,24 @@ public class GameLogicMain : MonoBehaviour {
 
     void HandleStartGame()
     {
+        difficultyFactor = 1.0f; // reset the difficulty 
+        Messenger.Broadcast(Events.StartSequenceMode);
+    }
+
+    void HandleStartSequenceMode()
+    {
         resetTime();
         gameState = GameStates.MoveSequence;
         NextGesture();
-        
     }
 
-	void Update () {
+    void HandleFreestyleModeOver()
+    {
+        // sequence is successful --> increase difficulty!
+        difficultyFactor = difficultySteepness * difficultyFactor;
+    }
+
+    void Update () {
         if (gameState != GameStates.Waiting)
         {
             // "cheat" key space for debuging purpose
@@ -82,16 +95,12 @@ public class GameLogicMain : MonoBehaviour {
             {
                 if (gameState == GameStates.MoveSequence)
                 {
-                    difficultyFactor = 1.0f; // reset the difficulty 
                     Messenger.Broadcast(Events.GameOver);
                 }
                 else if (gameState == GameStates.Freestyle) // elif in case more gameModes are added
                 {
-                    // sequence is successful --> increase difficulty!
-                    difficultyFactor = difficultySteepness * difficultyFactor;
                     Messenger.Broadcast(Events.FreestyleModeOver);
-                    Messenger.Broadcast(Events.StartGame); // start sequence mode.
-                    Messenger.Broadcast(Events.StartSequenceMode); // start sequence mode.
+                    Messenger.Broadcast(Events.StartSequenceMode);
                 }
             }
         } // if (gameState != GameState.Waiting)

@@ -9,7 +9,7 @@ public class NextMoveImageScript : MonoBehaviour {
 	void Start () {
 		image = gameObject.GetComponent<Image> ();
 		Messenger.AddListener<Gestures> (Events.NewGesture, HandleNewGesture);
-        Messenger.AddListener(Events.StartGame, HandleStartGame);
+        Messenger.AddListener(Events.StartSequenceMode, HandleStartSequenceMode);
         Messenger.AddListener(Events.StartFreestyleMode, HandleStartFreestyleMode);
     }
 
@@ -22,7 +22,7 @@ public class NextMoveImageScript : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    void HandleStartGame()
+    void HandleStartSequenceMode()
     {
         gameObject.SetActive(true);
     }

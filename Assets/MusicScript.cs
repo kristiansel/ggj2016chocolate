@@ -12,7 +12,7 @@ public class MusicScript : MonoBehaviour {
 		lyd = GetComponent<AudioSource> ();
 		Messenger.AddListener (Events.StartFreestyleMode, HandleStartFreestyleMode);
 		Messenger.AddListener (Events.FreestyleModeOver, HandleFreestyleModeOver);
-        Messenger.AddListener (Events.StartGame, HandleStartSequence);
+        Messenger.AddListener (Events.StartSequenceMode, HandleStartSequenceMode);
     }
 
 	void HandleStartFreestyleMode() {
@@ -21,7 +21,7 @@ public class MusicScript : MonoBehaviour {
         lyd.Play();
     }
 
-    void HandleStartSequence()
+    void HandleStartSequenceMode()
     {
         int index = (int)Random.Range(0, sequenceClips.Length);
         lyd.clip = sequenceClips[index];
