@@ -10,14 +10,14 @@ public class NextMoveImageScript : MonoBehaviour {
 		image = gameObject.GetComponent<Image> ();
 		Messenger.AddListener<Gestures> (Events.NewGesture, HandleNewGesture);
         Messenger.AddListener(Events.StartGame, HandleStartGame);
-        Messenger.AddListener(Events.FreestyleTriggered, HandleFreestyleTriggered);
+        Messenger.AddListener(Events.StartFreestyleMode, HandleStartFreestyleMode);
     }
 
 	void HandleNewGesture (Gestures gesture) {
 		image.sprite = GetSpriteForGesture (gesture);
 	}
 
-    void HandleFreestyleTriggered()
+    void HandleStartFreestyleMode()
     {
         gameObject.SetActive(false);
     }

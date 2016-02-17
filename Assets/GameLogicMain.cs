@@ -40,7 +40,7 @@ public class GameLogicMain : MonoBehaviour {
     void Start () {
 		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
 		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
-        Messenger.AddListener (Events.FreestyleTriggered, HandleFreestyleTriggered);
+        Messenger.AddListener (Events.StartFreestyleMode, HandleFreestyleTriggered);
         Messenger.AddListener (Events.StartGame, HandleStartGame);
 		resetTime ();
 
@@ -89,8 +89,9 @@ public class GameLogicMain : MonoBehaviour {
                 {
                     // sequence is successful --> increase difficulty!
                     difficultyFactor = difficultySteepness * difficultyFactor;
-                    Messenger.Broadcast(Events.FreestyleOver);
+                    Messenger.Broadcast(Events.FreestyleModeOver);
                     Messenger.Broadcast(Events.StartGame); // start sequence mode.
+                    Messenger.Broadcast(Events.StartSequenceMode); // start sequence mode.
                 }
             }
         } // if (gameState != GameState.Waiting)
@@ -129,7 +130,7 @@ public class GameLogicMain : MonoBehaviour {
             if (gameState != GameStates.Freestyle)
             {
                 gameState = GameStates.Freestyle;
-                Messenger.Broadcast(Events.FreestyleTriggered);
+                Messenger.Broadcast(Events.StartFreestyleMode);
             }
         }
         else // else should reduce time a bit and increment sequencenumber

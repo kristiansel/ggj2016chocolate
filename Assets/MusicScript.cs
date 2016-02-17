@@ -10,12 +10,12 @@ public class MusicScript : MonoBehaviour {
 
     void Start () {
 		lyd = GetComponent<AudioSource> ();
-		Messenger.AddListener (Events.FreestyleTriggered, HandleFreestyleTriggered);
-		Messenger.AddListener (Events.FreestyleOver, HandleFreestyleOver);
+		Messenger.AddListener (Events.StartFreestyleMode, HandleStartFreestyleMode);
+		Messenger.AddListener (Events.FreestyleModeOver, HandleFreestyleModeOver);
         Messenger.AddListener (Events.StartGame, HandleStartSequence);
     }
 
-	void HandleFreestyleTriggered() {
+	void HandleStartFreestyleMode() {
         int index = (int)Random.Range(0, freestyleClips.Length);
         lyd.clip = freestyleClips[index];
         lyd.Play();
@@ -29,7 +29,7 @@ public class MusicScript : MonoBehaviour {
     }
 
     // funker ikke for øyeblikket
-    void HandleFreestyleOver() {
+    void HandleFreestyleModeOver() {
 	//	lyd.Stop ();
 	}
 }
