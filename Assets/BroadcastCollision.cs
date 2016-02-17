@@ -20,8 +20,12 @@ public class BroadcastCollision : MonoBehaviour {
 
 		lastCollision = t;
 
-		var velocity = collision.relativeVelocity;
+		var thisPlayer = GetComponentInParent<Player> ().player;
+		var b1 = thisPlayer == 1 ? this : otherBroadcast;
+		var b2 = thisPlayer == 2 ? this : otherBroadcast;
+		var velocity = (thisPlayer == 1 ? 1 : -1) * collision.relativeVelocity;
+		Debug.Log (velocity);
 
-		Messenger.Broadcast<BroadcastCollision, BroadcastCollision, Vector2> (Events.Collision, this, otherBroadcast, velocity);
+		Messenger.Broadcast<BroadcastCollision, BroadcastCollision, Vector2> (Events.Collision, b1, b2, velocity);
 	}
 }

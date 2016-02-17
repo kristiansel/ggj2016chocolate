@@ -37,7 +37,7 @@ public class GameLogicMain : MonoBehaviour {
     }
 
     void Start () {
-		Messenger.AddListener<Gestures> (Events.Gesture, HandleGesture);
+		Messenger.AddListener<Gestures, float> (Events.Gesture, HandleGesture);
 		Messenger.AddListener (Events.CorrectGesture, HandleCorrectGesture);
         Messenger.AddListener (Events.StartFreestyleMode, HandleFreestyleTriggered);
         Messenger.AddListener (Events.FreestyleModeOver, HandleFreestyleModeOver);
@@ -109,7 +109,8 @@ public class GameLogicMain : MonoBehaviour {
 
 	private Gestures? currentGesture;
 
-	void HandleGesture(Gestures g) {
+	void HandleGesture(Gestures g, float score) {
+		Debug.Log ("Gesture: " + g.ToString () + " (" + score + ")");
         if (gameState == GameStates.MoveSequence)
         {
 			if (currentGesture.HasValue && currentGesture.Value == g) {

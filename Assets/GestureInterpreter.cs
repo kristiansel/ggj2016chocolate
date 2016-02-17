@@ -17,15 +17,25 @@ public static class Extensions
 	}
 
 	public static float IsFistHammerLeftTop(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		return b1.type == "palm bottom" && b2.type == "palm top" ? 1 : 0;
+		if (b1.type != "palm bottom" || b2.type != "palm top") {
+			return 0;
+		}
+		//the more downwards, the better the score
+		return Vector2.Dot (velocity.normalized, Vector2.down);
 	}
 
 	public static float IsFistHammerRightTop(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		return b1.type == "palm top" && b2.type == "palm bottom" ? 1 : 0;
+		if (b1.type != "palm top" || b2.type != "palm bottom") {
+			return 0;
+		}
+		return Vector2.Dot (velocity.normalized, Vector2.up);
 	}
 
 	public static float IsVerticalFistBump(BroadcastCollision b1, BroadcastCollision b2, Vector2 velocity) {
-		return b1.type == "fist fingers" && b2.type == "fist fingers" ? 1 : 0;
+		if (b1.type != "fist fingers" || b2.type != "fist fingers") {
+			return 0;
+		}
+		return Vector2.Dot (velocity.normalized, Vector2.right);
 	}
 }
 
@@ -46,8 +56,7 @@ public class GestureInterpreter : MonoBehaviour {
 		var best = gesturesAndScores.MaxBy (pair => pair.Score);
 
 		if (best.Score > 0.5) {
-			//TODO: add score to broadcast
-			Messenger.Broadcast (Events.Gesture, best.Gesture);
+			Messenger.Broadcast (Events.Gesture, best.Gesture, best.Score);
 		} else {
 			Debug.Log ("Unknown collision");
 		}
