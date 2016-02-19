@@ -3,7 +3,7 @@
 --- !u!29 &1
 SceneSettings:
   m_ObjectHideFlags: 0
-  m_PVSData: 
+  m_PVSData:
   m_PVSObjectsArray: []
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
@@ -170,11 +170,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11404968, guid: b4aa2b62b57db274d9a45dc58c504821, type: 2}
       propertyPath: gameLogicObject
-      value: 
+      value:
       objectReference: {fileID: 206250991}
     - target: {fileID: 11498636, guid: b4aa2b62b57db274d9a45dc58c504821, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 206250991}
     - target: {fileID: 22412300, guid: b4aa2b62b57db274d9a45dc58c504821, type: 2}
       propertyPath: m_AnchorMax.x
@@ -314,6 +314,14 @@ Prefab:
       propertyPath: closeButton
       value: p2 close
       objectReference: {fileID: 0}
+    - target: {fileID: 11495798, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
+      propertyPath: rotateUpButton
+      value: p2 rotate up
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495798, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
+      propertyPath: rotateDownButton
+      value: p2 rotate down
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da4792ce7d950453a9bef4d43072e9f9, type: 2}
   m_IsPrefabParent: 0
@@ -366,27 +374,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11440662, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: successClips.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 530680ecadea4e746ac980e738fe73ab, type: 3}
     - target: {fileID: 11440662, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: successClips.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 1cec3487334018c48be8fd6d6752a541, type: 3}
     - target: {fileID: 11440662, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: failClips.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 89c4456e5d72549bb87a3b14b98a8bd5, type: 3}
     - target: {fileID: 11440662, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: failClips.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 605244d3a5ca649249e220c9f1b19bc7, type: 3}
     - target: {fileID: 11440662, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: failClips.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 89660fcda5fa14b6f8557ffa692ac89e, type: 3}
     - target: {fileID: 11440662, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: failClips.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 4897a783b25f9411cbabd915e7d41ef9, type: 3}
     - target: {fileID: 184750, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: m_Name
@@ -436,11 +444,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443248, guid: 5b9517c9d08774768ba8761ff5e89e1b, type: 2}
       propertyPath: target
-      value: 
+      value:
       objectReference: {fileID: 1395000733}
     - target: {fileID: 23175050, guid: 5b9517c9d08774768ba8761ff5e89e1b, type: 2}
       propertyPath: m_ConnectedRigidBody
-      value: 
+      value:
       objectReference: {fileID: 1395000735}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b9517c9d08774768ba8761ff5e89e1b, type: 2}
@@ -736,7 +744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
 --- !u!1001 &1557202727
 Prefab:
   m_ObjectHideFlags: 0
@@ -823,7 +831,7 @@ MeshRenderer:
   m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 48478ab8669564ef0a81d3a63fd0db3e, type: 2}
-  m_SubsetIndices: 
+  m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
