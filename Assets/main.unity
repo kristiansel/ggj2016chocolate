@@ -358,7 +358,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 401972, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8202934, guid: a777cd4eed091495486551563dfae6ce, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
@@ -388,6 +388,10 @@ Prefab:
       propertyPath: failClips.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 4897a783b25f9411cbabd915e7d41ef9, type: 3}
+    - target: {fileID: 184750, guid: a777cd4eed091495486551563dfae6ce, type: 2}
+      propertyPath: m_Name
+      value: SoundEffects
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a777cd4eed091495486551563dfae6ce, type: 2}
   m_IsPrefabParent: 0

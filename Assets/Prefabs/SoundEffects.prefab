@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11440662}
   - 82: {fileID: 8202934}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: SoundEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,13 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1250cef7a1eb748e4ba02826e1c96c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successClips:
-  - {fileID: 8300000, guid: 30b2491428514477ba386fc02594f9fe, type: 3}
-  - {fileID: 8300000, guid: 148e38c69334148e298c3c3832ff7c84, type: 3}
-  - {fileID: 8300000, guid: 2b771d3a6107344dd9062b906a209453, type: 3}
-  - {fileID: 8300000, guid: 757be34e7cf334079b441c34bee33567, type: 3}
-  - {fileID: 8300000, guid: 7063175eeb5474c5f9ccad2a5863c727, type: 3}
-  - {fileID: 8300000, guid: 1d92031f432d84bba8940c37da2762e2, type: 3}
   bumpClips:
   - {fileID: 8300000, guid: 00965ba41de4440ff95ebb2a9d598c31, type: 3}
   - {fileID: 8300000, guid: a67918b53a50244119216d88d5544979, type: 3}
