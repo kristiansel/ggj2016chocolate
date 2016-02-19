@@ -6,7 +6,7 @@ public class FollowTarget : MonoBehaviour {
 	public float maxForce = 20;
 	public Transform target;
 
-	private Rigidbody2D rigidbody;
+	private new Rigidbody2D rigidbody;
 
 	void Start() {
 		rigidbody = GetComponent<Rigidbody2D> ();
