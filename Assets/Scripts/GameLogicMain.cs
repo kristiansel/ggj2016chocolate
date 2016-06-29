@@ -89,6 +89,7 @@ public class GameLogicMain : MonoBehaviour {
                 if (gameState == GameStates.MoveSequence)
                 {
                     Messenger.Broadcast(Events.GameOver);
+					gameState = GameStates.Waiting;
                 }
                 else if (gameState == GameStates.Freestyle) // elif in case more gameModes are added
                 {
@@ -122,6 +123,7 @@ public class GameLogicMain : MonoBehaviour {
         else if (gameState == GameStates.Freestyle)
         {
             // send some message to give some possitive feedback...
+			Messenger.Broadcast (Events.CorrectGesture);
         }
 	}
 
